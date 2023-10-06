@@ -35,7 +35,7 @@ app.get('/restaurants', (req, res) => {
 
 app.get('/restaurant/:id', (req, res) => {
   const id = Number(req.params.id)
-  if (id === NaN) res.status(403).render('notFound') // 錯誤處理，但是不太清楚要怎麼用
+  if (isNaN(id)) res.status(403).render('notFound') // 錯誤處理，但是不太清楚要怎麼用
   const restaurant = restaurants.find((item) => item.id === id)
   if (!restaurant) res.status(403).render('notFound')
   res.render('detail', { restaurant })
